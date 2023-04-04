@@ -1,0 +1,25 @@
+{% extends 'hola_mundo/base.html'%}
+
+
+{%block titulo%} Listado de compras {%endblock%}
+
+{%block listado%}
+
+<form>
+    <p>
+        <label for="criterio_articulo">Criterio:</label>
+        <input type="text" name="criterio_articulo" maxlength="100" required="" id="criterio_articulo">   
+      </p> 
+      <p>
+        <input type="submit" value="Buscar">
+      </p>
+</form>
+
+<ul>
+    {%  for compra in compras %}
+        <li>{{compra}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block title %} Total: {{total_compras}} {% endblock %}

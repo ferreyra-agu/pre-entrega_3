@@ -1,0 +1,21 @@
+{% extends 'hola_mundo/base.html'%}
+
+
+{%block titulo%} Listado de Compras {%endblock%}
+
+{%block listado%}
+
+<form action="{% url 'compras-create' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Guardar">
+</form>
+
+<ul>
+    {%  for compra in compras %}
+        <li>{{compra}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block title %} Total: {{total_compras}} {% endblock %}
